@@ -6,11 +6,6 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 
-# TODO: Delploy on the  free streamlit server
-# TODO : Add to website 
-# TODO : Add the predictions for all the broadway shows you have seen!
-# TODO : Add to Medium about Broadway shows
-# TODO : Add a post on LinkedIn someday
 def plot(df, y_col):
     fig = px.line(df, x= 'DateMonth', y=y_col, 
                 title='Monthly Broadway Gross Revenue',
@@ -28,7 +23,7 @@ st.set_page_config(
 )
 
 st.title("Broadway Analysis 🎭")
-st.markdown("Let us see some statistics on Broadway Shows")
+st.markdown("Let us see some statistics on Broadway Shows. Note this dataset is taken from Kaggle and the data in only available till 07/2016")
 
 tab1, tab2, tab3 = st.tabs(["💵 Revenue ", "🎙️ Top Shows ","🧙🏼‍♀️ Wicked Predictions "])
 df_broadway = pd.read_csv("data/broadway.csv")
@@ -130,7 +125,7 @@ with tab2:
 
 with tab3:
     st.header("Monthly Forecast of 🧙🏼‍♀️ Wicked's Broadway Sales")
-    st.markdown("The Predictions are based on an ARIMA model. To see more about the methodology, checkout my [GitHub Repo](https://github.com/zainab-shakruwala/mta_ridership)")
+    st.markdown("The Predictions are based on an ARIMA model. To see more about the methodology, checkout my [GitHub Repo](https://github.com/zainab-shakruwala/Broadway).")
     df_wicked  = df_broadway[df_broadway["Show.Name"]=="Wicked"]
     
     monthly_wicked = df_wicked.groupby("DateMonth")['Statistics.Gross'].sum()
