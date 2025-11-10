@@ -2,17 +2,11 @@ import streamlit as st
 import pandas as pd 
 import numpy as np
 from datetime import datetime, timedelta
-import kagglehub
 import os
 import plotly.express as px
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
 import plotly.graph_objects as go
-# Download latest version
-path_broadway = kagglehub.dataset_download("mexwell/broadway-shows")
 
-# TODO: Add to GitHub
-# TODO: Delploy on the  free streamlit server server
+# TODO: Delploy on the  free streamlit server
 # TODO : Add to website 
 # TODO : Add the predictions for all the broadway shows you have seen!
 # TODO : Add to Medium about Broadway shows
@@ -26,8 +20,6 @@ def plot(df, y_col):
     fig.update_yaxes(rangemode = 'tozero')
     st.plotly_chart(fig, use_container_width=True)
 
-print("Path to dataset files:", path_broadway)
-
 st.set_page_config(
     page_title = "Broadway Analysis",
     page_icon = "🎭",
@@ -39,15 +31,12 @@ st.title("Broadway Analysis 🎭")
 st.markdown("Let us see some statistics on Broadway Shows")
 
 tab1, tab2, tab3 = st.tabs(["💵 Revenue ", "🎙️ Top Shows ","🧙🏼‍♀️ Wicked Predictions "])
-broadway_file = os.path.join(path_broadway, "broadway.csv")
-df_broadway = pd.read_csv(broadway_file)
+df_broadway = pd.read_csv("data/broadway.csv")
 df_broadway = df_broadway[df_broadway["Date.Year"]!=1990]
 df_broadway["Date"] = pd.to_datetime(df_broadway["Date.Full"])
 df_broadway["DateMonth"] = df_broadway["Date"].dt.to_period('M')
 df_broadway["GrossMonthly"] = df_broadway.groupby("DateMonth")['Statistics.Gross'].transform('sum')
-
-df_result = pd.read_csv("WickedResult.csv")
-
+df_result = pd.read_csv("data/WickedResult.csv")
 
 with tab1:
     gross_monthly = df_broadway.groupby("DateMonth")['Statistics.Gross'].sum()
