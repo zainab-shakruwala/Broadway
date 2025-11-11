@@ -125,7 +125,7 @@ with tab2:
 
 with tab3:
     st.header("Monthly Forecast of 🧙🏼‍♀️ Wicked's Broadway Sales")
-    st.markdown("The Predictions are based on an ARIMA model. To see more about the methodology, checkout my [GitHub Repo](https://github.com/zainab-shakruwala/Broadway).")
+    st.markdown("The Predictions are based on an ARIMA model. To learn about the methodology of this prediction, checkout this [article](https://medium.com/@zainabshakruwala/the-one-train-821d4b114435) I posted on Medium.")
     df_wicked  = df_broadway[df_broadway["Show.Name"]=="Wicked"]
     
     monthly_wicked = df_wicked.groupby("DateMonth")['Statistics.Gross'].sum()
@@ -151,6 +151,7 @@ with tab3:
     # fig.add_trace(go.Scatter(x = monthly_wicked['DateMonth'], y = forecast, name='Forecast'))
     fig.update_layout(hovermode = "x unified")
     st.plotly_chart(fig, use_container_width=True)
+    st.markdown("To see the source code, checkout my [GitHub](https://github.com/zainab-shakruwala/Broadway).")
 
     
 

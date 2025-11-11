@@ -30,7 +30,7 @@ To download the data:
 
 
 ### Quickstart
-1) Create and activate a virtual environment (recommended).
+1) Create and activate a virtual environment.
 2) Install dependencies:
 
 ```bash
