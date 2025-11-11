@@ -23,7 +23,7 @@ st.set_page_config(
 )
 
 st.title("Broadway Analysis 🎭")
-st.markdown("Let us see some statistics on Broadway Shows. Note this dataset is taken from Kaggle and the data in only available till 07/2016")
+st.markdown("Let us see some statistics on Broadway Shows. Note this dataset is taken from Kaggle and the data in only available till 07/2016.")
 
 tab1, tab2, tab3 = st.tabs(["💵 Revenue ", "🎙️ Top Shows ","🧙🏼‍♀️ Wicked Predictions "])
 df_broadway = pd.read_csv("data/broadway.csv")

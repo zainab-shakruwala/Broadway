@@ -29,25 +29,11 @@ To download the data:
 - Or run the notebook to programmatically fetch it via `kagglehub` and produce `WickedResult.csv`.
 
 
-### Quickstart
-1) Create and activate a virtual environment.
-2) Install dependencies:
+### Dashboard
+Checkout the results: - 
 
-```bash
-pip install -r requirements.txt
-```
+https://broadway.streamlit.app
 
-3) Ensure data files exist:
-- `data/broadway.csv`
-- `data/WickedResult.csv` (create by running the notebook if missing)
-
-4) Run the Streamlit app:
-
-```bash
-streamlit run streamlit_app.py
-```
-
-5) Open the local URL printed in your terminal.
 
 
 ### The Notebook
@@ -62,7 +48,7 @@ The Streamlit app reads `data/WickedResult.csv` to overlay predicted monthly sal
 
 ### License and Attribution
 - Data © respective Kaggle contributors (`mexwell/broadway-shows`). Use per Kaggle’s terms.
-- Code © 2025 Zainab Shakruwala. See repository license if provided.
+- Code © 2025 Zainab Shakruwala. Licensed under the [MIT License](LICENSE).
 
 ### Acknowledgements
 - Built with Streamlit 🎈 and Plotly.
